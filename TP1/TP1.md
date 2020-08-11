@@ -1,6 +1,6 @@
 ﻿Error al intentar hacer el segundo push, cuando el clon fue modificado las mismas lineas
 
-
+![alt text](https://github.com/matischroder/IngSoftwareIII/blob/master/TP1/ErrorMerge.png?raw=true)
 
 Herramienta de mergeo
 
