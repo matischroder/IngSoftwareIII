@@ -1,8 +1,10 @@
 ﻿Error al intentar hacer el segundo push, cuando el clon fue modificado las mismas lineas
 
 
+
 Herramienta de mergeo
 
+![alt text](https://github.com/matischroder/IngSoftwareIII/blob/master/TP1/EditorMerge.png?raw=true)
 
 Las distintas versiones son:
  - LOCAL: la version que refleja los cambios que se acaban de realizar en un clon.
