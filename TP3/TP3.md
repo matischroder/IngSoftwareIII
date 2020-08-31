@@ -48,6 +48,7 @@
         "Labels": {}
     }
 ]
+
     **Qué comandos utilizó?** 
     	Para ver los puertos abiertos se utilizo "docker ps", y para visualizar la red mybridge, se utilizo el comando "docker network inspect mybridge".
     	
@@ -101,7 +102,7 @@ if __name__ == "__main__":
   **¿Qué hizo Docker Compose por nosotros? Explicar con detalle.**
   	Lo que hizo docker compose fue crear un nuevo bridge, el cual se llama dockercompose_default. Este bridge sirve para unir la pagina web que se mapea en el puerto 5000 con la base de datos que almacena la cantidad de veces que la pagina fue visitada. Tambien se puede observar que esa base de datos esta almacenada en un volumen especifico, de esta forma, si hacemos un down y un up nuevamente a docker-compose, la cantidad de visitas en la base de datos no se pierde. Esto es porque se almacena en nuestra maquina, a traves de los volumes de docker.
   	
-###4- Aumentando la complejidad, análisis de otro sistema distribuido.
+### 4- Aumentando la complejidad, análisis de otro sistema distribuido.
 	
   **Explicar como está configurado el sistema, puertos, volumenes componenetes involucrados, utilizar el Docker compose como guía.**
     Una aplicación web de Python que te permite votar entre dos opciones: esta app utiliza el puerto 5000 de nuestra computadora que refleja el puerto 80 del contenedor docker. La eleccion del usuario la manda a redis.
