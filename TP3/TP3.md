@@ -1,4 +1,4 @@
-###1. Verificar el estado de los contenedores y redes en Docker, describir:
+### 1. Verificar el estado de los contenedores y redes en Docker, describir:
 
     **Cuales puertos están abiertos?**
     	Los puertos que estan abiertos son el 5000 por la web y el 6379 el cual utiliza Redis.
@@ -51,7 +51,7 @@
     **Qué comandos utilizó?** 
     	Para ver los puertos abiertos se utilizo "docker ps", y para visualizar la red mybridge, se utilizo el comando "docker network inspect mybridge".
     	
-###2. Siendo el código de la aplicacion web el siguiente:
+### 2. Siendo el código de la aplicacion web el siguiente:
 
 import os
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
    **¿Qué considera usted que haría falta para no perder la cuenta de las visitas?**
    	Para no perder la cuenta de las visitas, se podria realizar backups de la base de datos. Se puede crear un volumen que contenga estos datos, guardandose de esta forma, cuando la pagina web o la base de datos esten caidos.
  
-###3. Utilizar docker compose
+### 3. Utilizar docker compose
 
   **¿Qué hizo Docker Compose por nosotros? Explicar con detalle.**
   	Lo que hizo docker compose fue crear un nuevo bridge, el cual se llama dockercompose_default. Este bridge sirve para unir la pagina web que se mapea en el puerto 5000 con la base de datos que almacena la cantidad de veces que la pagina fue visitada. Tambien se puede observar que esa base de datos esta almacenada en un volumen especifico, de esta forma, si hacemos un down y un up nuevamente a docker-compose, la cantidad de visitas en la base de datos no se pierde. Esto es porque se almacena en nuestra maquina, a traves de los volumes de docker.
@@ -110,7 +110,11 @@ if __name__ == "__main__":
     Una base de datos de Postgres respaldada por un volumen de Docker: esta base de datos en postgress almacena todos los votos realizado en la aplicacion de python y tiene un respaldo en el volume "db-data"
     Una aplicación web Node.js que muestra los resultados de la votación en tiempo real: esta alplicacion web se corre en el puerto 80 de su contenedor, el cual se refleja en nuestro puerto 5001. Necesita para esto, los datos almacenados en la base de datos de Postgres.
 
-###5- Análisis detallado
+### 5- Análisis detallado
+
+	Exponer más puertos para ver la configuración de Redis, y las tablas de PostgreSQL con alguna IDE como dbeaver.
+	
+	![alt text](https://github.com/matischroder/IngSoftwareIII/blob/master/TP3/postgres.png?raw=true)
   	
   	
 	
