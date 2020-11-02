@@ -113,10 +113,23 @@ if __name__ == "__main__":
 
 ### 5- Análisis detallado
 
-	Exponer más puertos para ver la configuración de Redis, y las tablas de PostgreSQL con alguna IDE como dbeaver.
+  **Exponer más puertos para ver la configuración de Redis, y las tablas de PostgreSQL con alguna IDE como dbeaver.**
+    Dentro de la tabla de postgres se puede ver que se encuentra cada uno de los votos con un id unequivoco. Luego, respecto a redis no pude observar mas que el mismo cluster en el cual tampoco pude visualizar alguna modificacion en el instante de una votacion. 
+
+    ![alt text](https://github.com/matischroder/IngSoftwareIII/blob/master/TP3/postgres.png?raw=true)
+
 	
-	![alt text](https://github.com/matischroder/IngSoftwareIII/blob/master/TP3/postgres.png?raw=true)
-  	
+  **Revisar el código de la aplicación Python example-voting-app\vote\app.py para ver como envía votos a Redis.**
+    Lo primero que realiza el codigo es otorgarle un id al votante. En caso de no poseer un id, se utiliza uno random creado por la misma app. Luego de esto se utiliza uel metodo POST para pasar ese voto a la base de dato de redis, al cual se le pasan los datos a traves de un JSON. La pagina web es creada a trave de flask, un framework minimalista.
+    
+  **Revisar el código del worker example-voting-app\worker\src\main\java\worker\Worker.java para entender como procesa los datos.**
+    El worker esta escrito en Java. Lo primero que se hace es conectar el worker a la base de datos de redis y con la base de datos de Postgres. Como se menciono anteriormente, se consumen todos los votos en forma de JSON. Aca es cuando se toman los votos que provienen de redis. El worker esta todo el tiempo fijandose si viene un nuevo voto de esta base de datos. Si llega un voto, se llama a una funcion updateVote la cual inserta este voto a la base de datos de Postgres. Las funciones restantes son utilizadas para la conexion con ambas bases de datos.
+    
+  **Revisar el código de la aplicacion que muestra los resultados example-voting-app\result\server.js para entender como muestra los valores.**
+    El servidor esta escrito en JavaScript. El servidor se conecta con la base de datos de Postgres. Tambien utiliza socketIo para la comunicacion bidireccional en tiempo real con el cliente. Es mas, en la pagina web de resultados, se puede verificar como el servidor manda un mensaje de Bienvenido al cliente a traves de la consola Network. 
+    Cada un segundo, la pagina web toma los resultados que se encuentran en la base de datos de Postgres y se los muestra al cliente. 
+
+  **Escribir un documento de arquitectura sencillo, pero con un nivel de detalle moderado, que incluya algunos diagramas de bloques, de sequencia, etc y descripciones de los distintos componentes involucrados es este sistema y como interactuan entre sí.**
   	
 	
 
